@@ -3,8 +3,9 @@ const bcrypt = require("bcrypt");
 const alert = require("alert");
 var LocalStorage = require("node-localstorage").LocalStorage;
 localStorage = new LocalStorage("./scratch");
+
 const getRegister = (req, res) => {
-    res.sendFile("register.html", { root: "./views" });
+    res.render("register.ejs", { root: "./views" });
 };
 
 const postRegister = async (req, res) => {
@@ -54,7 +55,7 @@ const postRegister = async (req, res) => {
 };
 
 const getLogin = (req, res) => {
-    res.sendFile("login.html", { root: "./views" });
+    res.render("login.ejs", { root: "./views" });
 };
 
 const postLogin = async (req, res) => {
@@ -77,11 +78,11 @@ const postLogin = async (req, res) => {
 };
 
 const getDashboard = (req, res) => {
-    res.sendFile("index.html", { root: "./views" });
+    res.render("index.ejs", { root: "./views" });
 };
 
 const getHomePage = (req, res) => {
-    res.sendFile("start.html", { root: "./views" });
+    res.render("start.ejs", { root: "./views" });
 };
 
 const logout = (req, res) => {

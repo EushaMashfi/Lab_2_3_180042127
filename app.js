@@ -1,7 +1,10 @@
 const express = require("express");
 const app = express();
-const userRoutes = require("./routes/authRoute");
+const authRoutes = require("./routes/authRoute");
 
 app.use(express.static("public"));
-app.use(userRoutes);
+
+app.set("view engine", "ejs");
+
+app.use(authRoutes);
 module.exports = app;

@@ -10,6 +10,7 @@ const {
     postRegister,
     logout,
 } = require("../Controller/authController");
+
 const isLoggedIn = require("../middlewares/authMiddleware");
 const pageNotFound = require("../Controller/userController");
 
@@ -22,10 +23,12 @@ router.get("/", getHomePage);
 router.use("/dashboard", isLoggedIn, getDashboard);
 
 router.route("/login").get(getLogin).post(postLogin);
-
 router.route("/register").get(getRegister).post(postRegister);
 
 router.get("/logout", logout);
+// router.get("/", (req, res) => {
+//     res.render("index.ejs", { root: "./views" });
+// });
 
 router.use(pageNotFound);
 
